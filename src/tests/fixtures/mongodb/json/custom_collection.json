@@ -1,0 +1,109 @@
+[
+  {
+    "_id": {
+      "$oid": "5e3ef36503d81c00071ea4d4"
+    },
+    "simple_attribute_string": "Test",
+    "simple_attribute_number": 123,
+    "simple_attribute_boolean": true,
+    "simple_attribute_date": "2020-01-01",
+    "simple_attribute_array": [
+      "a",
+      "b"
+    ],
+    "sub_document_1": {
+      "simple_attribute_string": "Test",
+      "simple_attribute_number": 123,
+      "simple_attribute_boolean": true,
+      "simple_attribute_date": "2020-01-01",
+      "simple_attribute_array": [
+        "a",
+        "b"
+      ],
+      "sub_document_3": {
+        "simple_attribute_string": "Test",
+        "simple_attribute_number": 123,
+        "simple_attribute_boolean": true,
+        "simple_attribute_date": "2020-01-01",
+        "simple_attribute_array": [
+          "a",
+          "b"
+        ]
+      }
+    },
+    "sub_document_2": [
+      {
+        "simple_attribute_string": "Test",
+        "simple_attribute_number": 123,
+        "simple_attribute_boolean": true,
+        "simple_attribute_date": "2020-01-01",
+        "simple_attribute_array": [
+          "a",
+          "b"
+        ],
+        "sub_document_3": {
+          "simple_attribute_string": "Test",
+          "simple_attribute_number": 123,
+          "simple_attribute_boolean": true,
+          "simple_attribute_date": "2020-01-01",
+          "simple_attribute_array": [
+            "a",
+            "b"
+          ]
+        }
+      },
+      {
+        "simple_attribute_string": "Test",
+        "simple_attribute_number": 123,
+        "simple_attribute_boolean": true,
+        "simple_attribute_date": "2020-01-01",
+        "simple_attribute_array": [
+          "a",
+          "b"
+        ],
+        "sub_document_3": {
+          "simple_attribute_string": "Test",
+          "simple_attribute_number": 123,
+          "simple_attribute_boolean": true,
+          "simple_attribute_date": "2020-01-01",
+          "simple_attribute_array": [
+            "a",
+            "b"
+          ]
+        }
+      }
+    ],
+    "sub_document_4": [
+      {
+        "simple_attribute_string": "Test",
+        "simple_attribute_number": 123,
+        "simple_attribute_boolean": true,
+        "simple_attribute_date": "2020-01-01",
+        "simple_attribute_array": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "simple_attribute_string": "Test",
+        "simple_attribute_number": 123,
+        "simple_attribute_boolean": true,
+        "simple_attribute_date": "2020-01-01",
+        "simple_attribute_array": [
+          "a",
+          "b"
+        ]
+      }
+    ],
+    "sub_document_5": {
+      "simple_attribute_string": "Test",
+      "simple_attribute_number": 123,
+      "simple_attribute_boolean": true,
+      "simple_attribute_date": "2020-01-01",
+      "simple_attribute_array": [
+        "a",
+        "b"
+      ]
+    }
+  }
+]

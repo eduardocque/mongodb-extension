@@ -1,0 +1,37 @@
+{
+    "name": "eduardocque/mongodb-extension",
+    "description": "MongoDB extension for the Yii framework",
+    "keywords": ["yii2", "mongo", "mongodb", "active-record"],
+    "type": "yii2-extension",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/eduardocque/mongodb-extension/issues",
+        "source": "https://github.com/eduardocque/mongodb-extension"
+    },
+    "authors": [
+        {
+            "name": "Carlos Rodriguez",
+            "email": ""
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "^2.0.38",
+        "ext-mongodb": "*"
+    },
+    "require-dev": {
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "mongodb": "src" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.1.x-dev"
+        }
+    }
+}
