@@ -76,7 +76,7 @@ class ActiveRecord extends \yii\mongodb\ActiveRecord implements DocumentInterfac
             } elseif (is_array($value) && isset($this->children[$key])) {
                 foreach ($value as $subKey => $subValue) {
                     /* @var $subValue array */
-                    if (is_array($subValue) && $this->children[$key] & $this->children[$key]['type'] === MongoDBUtils::DOCUMENT_TYPE_LIST) {
+                    if (is_array($subValue) && $this->children[$key] && $this->children[$key]['type'] === MongoDBUtils::DOCUMENT_TYPE_LIST) {
                         $values[$key][$subKey] = $this->mapDocument($subValue, $this->children[$key]['class'], $key, $this->isNewRecord);
                     } elseif ($this->children[$key] && $this->children[$key]['type'] === MongoDBUtils::DOCUMENT_TYPE_SIMPLE) {
                         $this->$key->setAttributes($value);
@@ -101,7 +101,7 @@ class ActiveRecord extends \yii\mongodb\ActiveRecord implements DocumentInterfac
         } elseif (is_array($value) && isset($this->children[$name])) {
             foreach ($value as $subKey => $subValue) {
                 /* @var $subValue array */
-                if (is_array($subValue) && $this->children[$name] & $this->children[$name]['type'] === MongoDBUtils::DOCUMENT_TYPE_LIST) {
+                if (is_array($subValue) && $this->children[$name] && $this->children[$name]['type'] === MongoDBUtils::DOCUMENT_TYPE_LIST) {
                     $value[$subKey] = $this->mapDocument($subValue, $this->children[$name]['class'], $name, $this->isNewRecord);
                 } elseif ($this->children[$name] && $this->children[$name]['type'] === MongoDBUtils::DOCUMENT_TYPE_SIMPLE) {
                     $this->$name->setAttributes($value);
