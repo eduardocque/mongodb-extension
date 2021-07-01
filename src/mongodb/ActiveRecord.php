@@ -2,10 +2,13 @@
 
 namespace mongodb\mongodb;
 
+use MongoDB\BSON\Type;
 use mongodb\DocumentInterface;
-use mongodb\helpers\MongoDBUtils;
 use mongodb\DocumentTrait;
+use mongodb\helpers\MongoDBUtils;
+use stdClass;
 use yii\base\InvalidConfigException;
+use yii\helpers\ArrayHelper;
 use yii\validators\Validator;
 
 /**
@@ -199,5 +202,47 @@ class ActiveRecord extends \yii\mongodb\ActiveRecord implements DocumentInterfac
         }
 
         parent::populateRecord($record, $row);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toArray(array $fields = [], array $expand = [], $recursive = true)
+    {
+        $data = parent::toArray($fields, $expand, false);
+        if (!$recursive) {
+            return $data;
+        }
+        return $this->toArrayInternal($data);
+    }
+
+    /**
+     * Converts data to array recursively, converting MongoDB BSON objects to readable values.
+     * @param mixed $data the data to be converted into an array.
+     * @return array the array representation of the data.
+     * @since 2.1
+     */
+    private function toArrayInternal($data)
+    {
+        if (is_array($data)) {
+            foreach ($data as $key => $value) {
+                if (is_array($value)) {
+                    $data[$key] = $this->toArrayInternal($value);
+                }
+                if (is_object($value)) {
+                    if ($value instanceof Type) {
+                        $data[$key] = $this->dumpBsonObject($value);
+                    } elseif ($value instanceof self) {
+                        $data[$key] = $value->toArray();
+                    } elseif (!($value instanceof stdClass && count((array)$value) === 0)) {
+                        $data[$key] = ArrayHelper::toArray($value);
+                    }
+                }
+            }
+            return $data;
+        } elseif (is_object($data)) {
+            return ArrayHelper::toArray($data);
+        }
+        return [$data];
     }
 }
